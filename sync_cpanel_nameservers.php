@@ -17,12 +17,12 @@
 		syncDNS();
 
 		// Your cPanel server Local / Router IP 
-		$localip = '10.0.10.50';
+		$localip = '192.168.1.1';
 		
 		// Your Main Domain name and Nameservers
-		$domain = 'janglehost.com';
-		$ns1 = 'ns1.janglehost.com';
-		$ns2 = 'ns2.janglehost.com';
+		$domain = '$DOMAIN';
+		$ns1 = 'ns1.$DOMAIN';
+		$ns2 = 'ns2.$DOMAIN';
 
 		// Optional Static IPv6
 		$v6 = '123';
