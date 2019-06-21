@@ -10,12 +10,12 @@
 		if($s) {syncDNS(); sleep(2);}
 
 		// Your cPanel server Local / Router IP
-		$localip = '10.0.10.50';
+		$localip = '192.168.1.50';
 
 		// Your Main Domain name and Nameservers
-		$domain = 'janglehost.com';
-		$ns1 = 'ns1.janglehost.com';
-		$ns2 = 'ns2.janglehost.com';
+		$domain = 'yourhost.com';
+		$ns1 = 'ns1.yourhost.com';
+		$ns2 = 'ns2.yourhost.com';
 
 		// Optional Static IPv6
 		$v6 = '123';
@@ -28,12 +28,12 @@
 				    'host'        =>  $localip.':2087',
 					'username'    =>  'root',
 					'auth_type'   =>  'hash',
-					'password'    =>  'S8DZRVLQHVH1Q9XWRG2SVVT314O6TV3Q'
+					'password'    =>  'xxxxxxxx'
 				]);
 			}
 
 			// Name.com API Key
-			$name = new NameDotComApi('liam12360', '003f4d57153ba001f7907a8ccf1a769ae6e27e85', 0);
+			$name = new NameDotComApi('username', 'xxxxxxxxx', 0);
 
 		} catch ( Exception $e ) {
 			print_r($e);
