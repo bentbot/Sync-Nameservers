@@ -1,5 +1,15 @@
 <?php
 
+	// cPanel users check the run function at the bottom of this file.
+	
+	// Modify these variables:	
+	//		$localip
+	//		$domain
+	// 		$ns1
+	// 		$ns2
+	// 		cpanel username & hash
+	// 		name.com username & api key
+
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 	require_once('namedotcomapi/vendor/autoload.php');
@@ -10,12 +20,12 @@
 		if($s) {syncDNS(); sleep(2);}
 
 		// Your cPanel server Local / Router IP
-		$localip = '192.168.1.50';
+		$localip = '127.0.0.1';
 
 		// Your Main Domain name and Nameservers
-		$domain = 'yourhost.com';
-		$ns1 = 'ns1.yourhost.com';
-		$ns2 = 'ns2.yourhost.com';
+		$domain = 'host.com';
+		$ns1 = 'ns1.host.com';
+		$ns2 = 'ns2.host.com';
 
 		// Optional Static IPv6
 		$v6 = '123';
@@ -25,15 +35,15 @@
 			if ($s) {
 				// WHM API key
 				$cpanel = new \Gufy\CpanelPhp\Cpanel([
-				    'host'        =>  $localip.':2087',
+				    'host'        =>  'https://'.$localip.':2087',
 					'username'    =>  'root',
 					'auth_type'   =>  'hash',
-					'password'    =>  'xxxxxxxx'
+					'password'    =>  'apikeyxxxxxxxxxxxxxxxxxxxx'
 				]);
 			}
 
 			// Name.com API Key
-			$name = new NameDotComApi('username', 'xxxxxxxxx', 0);
+			$name = new NameDotComApi('user', 'apikeyxxxxxxxxxxxxxxxxxxx', 0);
 
 		} catch ( Exception $e ) {
 			print_r($e);
@@ -57,9 +67,11 @@
 		/**
 		* CPanel Changes
 		**/
-
+		sleep(3);
 		if ($s) {
+	
 			fix_cpanel_dns($cpanel, $p, $ns1, $ns2, $domain, $localip);
+			
 			$cpanel->nat_set_public_ip([
 				'local_ip' => $localip,
 				'public_ip' => $p
@@ -69,6 +81,7 @@
 				'key' => 'ipaddress',
 				'value' => $p
 			]);
+
 			sleep(2);
 			syncDNS();
 		}
@@ -130,7 +143,7 @@
 			'proxmox'
 		];
 
-		$allZones = $cpanel->listzones();
+		$allZones = json_decode($cpanel->listzones());
 
 		foreach ($allZones->zone as $j => $z) {
 
@@ -139,11 +152,10 @@
 				'ip' => $localip
 			]);
 
-			print_r($siteip);
-			exit();
+			$zones = json_decode($cpanel->dumpzone(['domain' => $z->domain]));
 
-			$zones = $cpanel->dumpzone(['domain' => $z->domain]);
 			$zones = $zones->result[0]->record;
+
 
 			foreach ($dns_labels as $h => $label) {
 				foreach ($zones as $k => $zone) {
@@ -159,7 +171,7 @@
 							'type'=> 	$zone->type,
 						];
 						try {
-							$newzone = $cpanel->editzonerecord($data);
+							$newzone = json_decode($cpanel->editzonerecord($data));
 							if( !$newzone->result[0]->status ) {
 								print_r( $data );
 								print_r( $newzone );
@@ -171,8 +183,10 @@
 					} else if ( isset($zone->name) && $zone->type == 'A' && strpos($zone->name.'.'.$z->domain, $label) !== false ) {
 
 						$address = $primary;
-						if ( $zone->name == 'ns1.'.$domain.'.' ) $address = $ns1;
-						if ( $zone->name == 'ns2.'.$domain.'.' ) $address = $ns2;
+						// if ( $zone->name == 'ns1.'.$domain.'.' ) $address = $ns1;
+						// if ( $zone->name == 'ns1' ) $address = $ns1;
+						// if ( $zone->name == 'ns2.'.$domain.'.' ) $address = $ns2;
+						// if ( $zone->name == 'ns2' ) $address = $ns2;
 
 						$data = [
 							'ttl' 	 => ($globalTTL) ? $globalTTL : $z->ttl,
@@ -185,7 +199,7 @@
 						];
 
 						try {
-							$newzone = $cpanel->editzonerecord($data);
+							$newzone = json_decode($cpanel->editzonerecord($data));
 							if( !$newzone->result[0]->status ) {
 								print_r( $data );
 								print_r( $newzone );
@@ -209,7 +223,7 @@
 						];
 
 						try {
-							$newzone = $cpanel->editzonerecord($data);
+							$newzone = json_decode($cpanel->editzonerecord($data));
 							if( !$newzone->result[0]->status ) {
 								print_r( $data );
 								print_r( $newzone );
@@ -237,7 +251,7 @@
 	}
 
 	/****
-	* 
+	* Get the Current IP Address
 	*****/
 	function grabip() {
 		$request = Requests::get('https://ip.seeip.org/jsonip?');
@@ -246,4 +260,7 @@
 	}
 
 
-	run();
+	// When running on a Cpanel Server, change argument to: true
+	run(false); 
+
+
