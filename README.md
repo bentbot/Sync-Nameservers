@@ -1,6 +1,6 @@
-__ipaddr.php__
-
 # Sync Nameservers
+AKA: __ipaddr.php__
+
 Automatically synchronizes cPanel & your ns1/ns2 nameservers with your WHM/cPanel server on a dynamic / non-static IP address.
 
 This is a simple script to update cPanel with the correct new IP address when it has changed or you are not able to host on a static IP.
