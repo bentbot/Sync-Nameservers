@@ -1,5 +1,10 @@
-# SyncNameservers
+# Sync Nameservers
 Automatically synchronize your nameservers to your WHM/cPanel server on a dynamic / non-static IP address.
+
+This is a simple script to update cPanel with the correct new IP address when it has changed or you are not able to host on a static IP.
+It also works with NAME.COM domain name registrar to update your service's nameservers to your new public IP address.
+
+In the script there is an array of subdomains containing what are cPanel's default records. These are updated to the correct public IP address after you have configured the script. Additional subdomains can be added there to create new zones or update custom zones.
 
 ## Instructions:
 
