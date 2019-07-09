@@ -255,6 +255,6 @@
 
 
 	// When running on a Cpanel Server, change argument to: true
-	run(false); 
+	run(true); 
 
 
