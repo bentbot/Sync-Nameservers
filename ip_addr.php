@@ -134,13 +134,7 @@
 			'webmail',
 			'cpanel',
 			'webdisk',
-			'pilot',
-			'pei',
-			'gitlab',
-			'ns1',
-			'ns2',
-			'neo',
-			'proxmox'
+			'pilot'
 		];
 
 		$allZones = json_decode($cpanel->listzones());
