@@ -18,3 +18,5 @@ In the script there is an array of subdomains containing what are cPanel's defau
 */2 * * * * php /root/<path>/ip_addr.php
 @reboot php /root/<path>/ip_addr.php
 ````
+
+5. At the very bottom of `ipaddr.php`, change the argument to 'false' to only update NS recoreds remotely.
