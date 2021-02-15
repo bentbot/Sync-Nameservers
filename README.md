@@ -5,11 +5,13 @@
 1. 
  - Setup a cronjob to run each & every minute throughout the day. 
  - Point it to the absolute path of the `update_dns.sh` script in this repository.
- -`
+ 
+ `
      [user@localhost]$ pwd ./dnsupdate.sh
      [root@localhost]$ sudo crontab -e
      * * * * * /srv/scripts/dnsupdate.sh > /dev/null 2>&1
-     crontab: installing new crontab`
+     crontab: installing new crontab
+`
 
 2. 
  - Open the file `./namedotcomapi/autoip.php` and change the needed configuration variables.
