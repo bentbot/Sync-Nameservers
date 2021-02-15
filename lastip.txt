@@ -1,1 +1,4 @@
+If you see this, try again :)
 
+[root@cpanel]$ sudo chmod +rwx ./lastip.txt; 
+[root@cpanel]$ sudo ./dnsupdate.sh;
