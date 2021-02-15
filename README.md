@@ -1,5 +1,7 @@
 # Sync Nameservers
 
+__Warning::__ Please continue just if you agree that running this tool can either automatically fix DNS resolution errors *or* it may completely screw-up / destroy your DNS records, leaving visitors permanantly unable to access any site hosted on your cPanel / WHM server! Without a proper backup, all active DNS could be destroyed in a power outtage or partial-crash.
+
 ## Version 2
 
 1. 
@@ -28,11 +30,19 @@ __Troubleshooting Procedure__
 
   - Try running manually: `[root@cpanel]$ ./dnsupdate.sh` Copy the IP new address.
   - Log in to WHM and browse to __Basic WebHost Manager® Setup__ > Find: '__ip__'
-  - Change the address in the first box: __Basic Config__ > __IP__ To the new IP if different.
-  - Click the __Configure Address Records__ in the __Nameservers__ section at the bottom.
-  - Paste the IP into the __NS1 IPv4 A record__ input box. Press __Configure Address Records__.
-  - Optional: __Configure Address Records__ again for __NS2__ if the IP address for NS2 isn't the same address.
-
+      - Change the address in the first box: __Basic Config__ > __IP__ To the new IP if different.
+      - Click the __Configure Address Records__ in the __Nameservers__ section at the bottom.
+      - Paste the IP into the __NS1 IPv4 A record__ input box. Press __Configure Address Records__.
+      - Optional: __Configure Address Records__ again for __NS2__ if the IP address for NS2 isn't the same address.
+  - If you are still unable to resolve your domains, continue to __Restore the Backup__:
+          - Check the folders `./dnsbak` for the NS records prior to IP address modification. (NOT NEW)
+          - The folder `./dnsbak2` contains the up-to-date NS records which should include the new IP address.
+          - Compare the Name.db docs for flaws in syntax such as a missing IP address in the 'A record' entries.
+  - If you are still unable to resolve the error, use WHM to __Reset All DNS Zones__. Resulting in a __loss of all__ customized records in WHM. Including but not limited to: MX Mail settings, external NS records, A redirects, custom TXT records, and more... Only Reset All DNS zones in an emergency. Use the `./dnsbak` folders to scrape custom records and restore them to each `/var/named/domain.tld.db` files. 
+  - Set the global TTL (Time to Live) and the one in zones to a short interval. Like to 60 or 300.
+          - 1. Use SSH `[root@cpanel]$ nano /var/named/domain.tld.db`
+          - 2. Login to WHM and go to __Basic WebHost Manager® Setup__ > Find: '__ttl__'
+  - When finished with a change, make sure to run: `[root@cpanel]$ service named restart` and *clear your browser cache.*
 
 ## Version 1
 
