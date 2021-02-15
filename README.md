@@ -20,7 +20,7 @@ __Warning::__ Please continue just if you agree that running this tool can eithe
    - Open the file `./autoip.php` and change the needed configuration variables.
    - Change the NAME.COM API credentials to relect your own ns1 & ns2 domain registrar account.
    - If needed, replace the bottom section of the file with your own API script, one that suits your registrar.
-   - Optional: Disable either NS1 / NS2 to make this server behave as a singular nameserver (automatic failover option is still in development).
+   - Optional: Disable either NS1 / NS2 to make this server behave as a singular nameserver =S
 
 ## Troublesoot
 
