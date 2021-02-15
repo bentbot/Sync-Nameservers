@@ -3,8 +3,8 @@
 ## Version 2
 
 1. 
- - Setup a cronjob to run each & every minute throughout the day. 
- - Point it to the absolute path of the `update_dns.sh` script in this repository.
+   - Setup a cronjob to run each & every minute throughout the day. 
+   - Point it to the absolute path of the `update_dns.sh` script in this repository.
  
  ````
   [user@localhost]$ pwd ./dnsupdate.sh
@@ -14,10 +14,10 @@
 ````
 
 2. 
- - Open the file `./namedotcomapi/autoip.php` and change the needed configuration variables.
- - Change the NAME.COM API credentials to relect your own ns1 & ns2 domain registrar account.
- - If needed, replace the bottom section of the file with your own API script, one that suits your registrar.
- - Optional: Disable either NS1 / NS2 to make this server behave as a singular nameserver (automatic failover option is still in development).
+   - Open the file `./namedotcomapi/autoip.php` and change the needed configuration variables.
+   - Change the NAME.COM API credentials to relect your own ns1 & ns2 domain registrar account.
+   - If needed, replace the bottom section of the file with your own API script, one that suits your registrar.
+   - Optional: Disable either NS1 / NS2 to make this server behave as a singular nameserver (automatic failover option is still in development).
 
 ## Troublesoot
 
