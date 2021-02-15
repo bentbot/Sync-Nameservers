@@ -23,7 +23,7 @@ __Warning::__ Please continue just if you agree that running this tool can eithe
    - Optional: Disable either NS1 / NS2 to make this server behave as a singular nameserver =S
 
 
-3. Done!
+3. Done! When your non-static IP changes your server will now know the new one. 
 
 ## Troublesoot
 
