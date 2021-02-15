@@ -25,7 +25,7 @@ Open cPanel WHM and double-check the following IP settings, making sure they are
 
 __Troubleshooting Procedure__
 
-  - `[root@localhost]$ ./dnsupdate.sh`
+  - Try running manually: `[root@localhost]$ ./dnsupdate.sh` Copy the IP new address.
   - Log in to WHM and browse to __Basic WebHost Manager® Setup__ > Find: '__ip__'
   - Change the address in the first box: __Basic Config__ > __IP__ To the new IP if different.
   - Click the __Configure Address Records__ in the __Nameservers__ section at the bottom.
