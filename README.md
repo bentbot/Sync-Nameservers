@@ -22,6 +22,9 @@ __Warning::__ Please continue just if you agree that running this tool can eithe
    - If needed, replace the bottom section of the file with your own API script, one that suits your registrar.
    - Optional: Disable either NS1 / NS2 to make this server behave as a singular nameserver =S
 
+3. 
+    - Done!
+
 ## Troublesoot
 
 Open cPanel WHM and double-check the following IP settings, making sure they are set to the current IP address you see when the script runs.
