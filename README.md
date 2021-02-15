@@ -3,12 +3,13 @@
 ## Version 2
 
 1. 
-   - Setup a cronjob to run each & every minute throughout the day. 
+   - Setup with: `[root@cpanel]$ chmod +rw ./lastip.txt; chmod -fR +rwx ./dnsbak*; chmod -fR +x ./dnsupdate.sh;`
+   - Add a cronjob to run each & every minute throughout the day. 
    - Point it to the absolute path of the `update_dns.sh` script in this repository.
  
  ````
-  [user@localhost]$ pwd ./dnsupdate.sh
-  [root@localhost]$ sudo crontab -e
+  [user@cpanel]$ pwd ./dnsupdate.sh
+  [root@cpanel]$ sudo crontab -e
   * * * * * /srv/scripts/dnsupdate.sh > /dev/null 2>&1
   crontab: installing new crontab
 ````
@@ -25,7 +26,7 @@ Open cPanel WHM and double-check the following IP settings, making sure they are
 
 __Troubleshooting Procedure__
 
-  - Try running manually: `[root@localhost]$ ./dnsupdate.sh` Copy the IP new address.
+  - Try running manually: `[root@cpanel]$ ./dnsupdate.sh` Copy the IP new address.
   - Log in to WHM and browse to __Basic WebHost Manager® Setup__ > Find: '__ip__'
   - Change the address in the first box: __Basic Config__ > __IP__ To the new IP if different.
   - Click the __Configure Address Records__ in the __Nameservers__ section at the bottom.
