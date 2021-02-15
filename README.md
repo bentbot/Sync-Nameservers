@@ -7,7 +7,6 @@
        - `[root@cpanel]$ mkdir dnsbak;mkdir dnsbak2;chmod +rw ./*.txt;chmod -fR +rwx ./dnsb*;chmod +x ./dnsu*;`
    - Add a cronjob to run each & every minute throughout the day. 
    - Point it to the absolute path of the `update_dns.sh` script in this repository.
- 
  ````
   [user@cpanel]$ pwd ./dnsupdate.sh
   [root@cpanel]$ sudo crontab -e
