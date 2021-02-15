@@ -20,7 +20,7 @@ exit 0;
 fi
 echo $NEWIP;
 echo 'New IP Detected. Reloading DNS...';
-php ./namedotcomapi/autoip.php;
+php ./autoip.php;
 cp /var/named/*.db ./dnsbak2;
 cp /var/named/*.db ./dnsbak;
 rm /var/cpanel/nameserverips.cache;
