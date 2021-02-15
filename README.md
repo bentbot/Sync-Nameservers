@@ -4,7 +4,7 @@
 
 1. 
    - Setup by running the command as root on your WHM cPanel server. 
-       - `[root@cpanel]$ chmod +rw ./lastip.txt; chmod -fR +rwx ./dnsbak*; chmod -fR +x ./dnsupdate.sh;`
+       - `[root@cpanel]$ mkdir dnsbak;mkdir dnsbak2;chmod +rw ./*.txt;chmod -fR +rwx ./dnsb*;chmod +x ./dnsu*;`
    - Add a cronjob to run each & every minute throughout the day. 
    - Point it to the absolute path of the `update_dns.sh` script in this repository.
  
