@@ -2,8 +2,6 @@
 
 __Warning::__ Please continue just if you agree that running this tool can either automatically fix DNS resolution errors *or* it may completely screw-up / destroy your DNS records, leaving visitors permanantly unable to access any site hosted on your cPanel / WHM server! Without a proper backup all active DNS records could be destroyed, in a power outtage or application crash, leaving your server temporarily unavailable.
 
-## Version 2
-
 1. 
    - Setup by running the command as root on your WHM cPanel server. 
        - `[root@cpanel]$ mkdir dnsbak;mkdir dnsbak2;chmod +rw ./*.txt;chmod -fR +rwx ./dnsb*;chmod +x ./dnsu*;`
