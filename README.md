@@ -22,8 +22,8 @@ __Warning::__ Please continue just if you agree that running this tool can eithe
    - If needed, replace the bottom section of the file with your own API script, one that suits your registrar.
    - Optional: Disable either NS1 / NS2 to make this server behave as a singular nameserver =S
 
-3. 
-    - Done!
+
+3. Done!
 
 ## Troublesoot
 
