@@ -25,7 +25,7 @@ __Warning::__ Please continue just if you agree that running this tool can eithe
 
 3. Done! When your non-static IP changes your server will now know the new one. 
 
-## Troublesoot
+## Troubleshooting
 
 Open cPanel WHM and double-check the following IP settings, making sure they are set to the current IP address you see when the script runs.
 
