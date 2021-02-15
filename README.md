@@ -45,7 +45,7 @@ __Troubleshooting Procedure__
           - 2. Login to WHM and go to __Basic WebHost Manager® Setup__ > Find: '__ttl__'
   - When finished with a change, make sure to run: `[root@cpanel]$ service named restart` and *clear your browser cache.*
 
-## Version 2
+## Original Version
 
 AKA: __ipaddr.php__
 
