@@ -1,6 +1,21 @@
-# Sync Nameservers
+# Sync Nameservers ( for cPanel / WHM servers ) 
+Now Refactored! 🤓
 
-__Warning::__ Please continue just if you agree that running this tool can either automatically fix DNS resolution errors *or* it may completely screw-up / destroy your DNS records, leaving visitors permanantly unable to access any site hosted on your cPanel / WHM server! Without a proper backup all active DNS records could be destroyed, in a power outtage or application crash, leaving your server temporarily unavailable.
+## Features
+
+- cPanel IP Address auto-updates!
+- No Internet/IP detection
+- Automatic DNS record backups to a folder (./dnsbak, ./dnsbak2, ...)
+- Serial number corrector
+- Instant DNS refresh + correction (60s timer)
+
+## Installation
+
+1. Place script in "/srv/scripts/" folder.
+2. Make permissions work: $ chmod +rwx /srv/scripts/*
+3. Replace "YOUR_MAIN_DOMAIN.com.db" with your public nameserver / server hostname.
+
+## Instruction
 
 1. 
    - Setup by running the command as root on your WHM cPanel server. 
@@ -45,7 +60,10 @@ __Troubleshooting Procedure__
           - 2. Login to WHM and go to __Basic WebHost Manager® Setup__ > Find: '__ttl__'
   - When finished with a change, make sure to run: `[root@cpanel]$ service named restart` and *clear your browser cache.*
 
-## Original Version
+
+__Warning::__ Please continue just if you agree that running this tool can either automatically fix DNS resolution errors *or* it may completely screw-up / destroy your DNS records, leaving visitors permanantly unable to access any site hosted on your cPanel / WHM server! Without a proper backup all active DNS records could be destroyed, in a power outtage or application crash, leaving your server temporarily unavailable.
+
+## Alternate Version
 
 AKA: __ipaddr.php__
 
