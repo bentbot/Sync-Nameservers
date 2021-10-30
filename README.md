@@ -14,8 +14,9 @@ Now Refactored! 🤓
 1. Place script in "/srv/scripts/" folder.
 2. Make permissions work: $ chmod +rwx /srv/scripts/*
 3. Replace "YOUR_MAIN_DOMAIN.com.db" with your public nameserver / server hostname.
+4. Add a DNS provider [NAME.COM] to "autoip.php". Allow setting of the Nameserver 1 and Nameserver 2 IP addresses.
 
-## Instruction
+## Instructions
 
 1. 
    - Setup by running the command as root on your WHM cPanel server. 
